@@ -29,6 +29,9 @@ Ushbu loyiha Go tili va Gin freymvorki yordamida yaratilgan vazifalarni boshqari
 ```bash
 git clone [https://github.com/7zet/Task-Tracker-API.git](https://github.com/7zet/Task-Tracker-API.git)
 cd Task-Tracker-API
+
+
+
 Bog'liqliklarni yuklang:Bashgo mod tidy
 Serverni ishga tushiring:Bashgo run cmd/main.go
 📡 API Yo'llari (Endpoints)MetodYo'nalishTavsifPOST/registerYangi foydalanuvchi yaratishPOST/loginTizimga kirish va tekshirishPOST/tasksYangi vazifa yaratishGET/tasks?user_id=NN-idli foydalanuvchining hamma vazifalari💡 Namuna (Request Example)Create Task:
