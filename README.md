@@ -29,27 +29,36 @@ Ushbu loyiha Go tili va Gin freymvorki yordamida yaratilgan vazifalarni boshqari
 ```bash
 git clone [https://github.com/7zet/Task-Tracker-API.git](https://github.com/7zet/Task-Tracker-API.git)
 cd Task-Tracker-API
-Bog'liqliklarni yuklang:Bashgo mod tidy
-Serverni ishga tushiring:Bashgo run cmd/main.go
-📡 API Yo'llari (Endpoints)MetodYo'nalishTavsifPOST/registerYangi foydalanuvchi yaratishPOST/loginTizimga kirish va tekshirishPOST/tasksYangi vazifa yaratishGET/tasks?user_id=NN-idli foydalanuvchining hamma vazifalari💡 Namuna (Request Example)Create Task:
+
+
+
+Bog'liqliklarni yuklang:
+Bash
+`go mod tidy`
+Serverni ishga tushiring:
+Bash
+`go run cmd/main.go`
+📡 API Yo'llari (Endpoints)
+ POST/registerYangi foydalanuvchi yaratish
+ POST/loginTizimga kirish va tekshirish
+ POST/tasksYangi vazifa yaratish
+ GET/tasks?user_id=NN-idli foydalanuvchining hamma vazifalari
+
+💡 Namuna (Request Example)Create Task:
 {
   "user_id": 1,
   "title": "Go organish",
   "status": "pending",
   "body": "GORM va PostgreSQL mavzusini tugatish"
 }
-📝 Roadmap[ ] Malumotlarni PostgreSQL malumotlar bazasiga kochirish.[ ] JWT (JSON Web Token) orqali xavfsizlikni ta'minlash.[ ] Vazifalarni tahrirlash (Update) va ochirish (Delete) funksiyalari.
+
+
+📝 Roadmap
+[ ] Malumotlarni PostgreSQL malumotlar bazasiga kochirish.
+[ ] JWT (JSON Web Token) orqali xavfsizlikni ta'minlash.
+[ ] Vazifalarni tahrirlash (Update) va ochirish (Delete) funksiyalari.
+
 Author: 7zet
 ---
 
-### Push qilish uchun kichik eslatma:
 
-GitHub-ga push qilishdan oldin, loyihang papkasida `.json` fayllari (agar ular avtomatik yaratilsa) va kesh fayllar git-ga chiqib ketmasligi uchun `.gitignore` faylini yaratishingni maslahat beraman. Ichiga shunchaki buni yoz:
-
-```text
-# Binary files
-main
-*.exe
-
-# JSON storage
-*.json
