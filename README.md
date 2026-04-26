@@ -1,64 +1,76 @@
-# 🚀 Task Tracker API (Golang)
+# Create a professional README.md file for the Task-Tracker-API project.
 
-Ushbu loyiha Go tili va Gin freymvorki yordamida yaratilgan vazifalarni boshqarish uchun mo'ljallangan RESTful API hisoblanadi. Loyiha o'z ichiga foydalanuvchilarni ro'yxatdan o'tkazish, autentifikatsiya va shaxsiy vazifalar ro'yxatini boshqarish funksiyalarini oladi.
+readme_content = """# 🚀 Task Tracker API (Golang)
+
+Ushbu loyiha **Go** tili va **Gin** freymvorki yordamida yaratilgan, vazifalarni boshqarish uchun mo'ljallangan yengil va samarali **RESTful API** hisoblanadi. Loyiha orqali foydalanuvchilarni ro'yxatdan o'tkazish, autentifikatsiya qilish va shaxsiy vazifalar (todo-list) ro'yxatini boshqarish mumkin.
+
+---
 
 ## 🛠 Texnologiyalar
-- **Language:** Go (Golang)
-- **Web Framework:** [Gin Gonic](https://github.com/gin-gonic/gin)
-- **Data Persistence:** JSON (Local File Storage)
+* **Language:** [Go (Golang)](https://go.dev/)
+* **Web Framework:** [Gin Gonic](https://github.com/gin-gonic/gin)
+* **Data Persistence:** JSON (Mahalliy fayl tizimi) — *Bazaga ulanish shart bo'lmagan yengil saqlash usuli.*
 
 ## 📁 Loyiha Strukturasi
-- `cmd/main.go`: Dasturning kirish nuqtasi va router konfiguratsiyasi.
-- `internal/model.go`: User va Task ma'lumotlarining strukturasi (structs).
-- `internal/handler.go`: HTTP so'rovlarni qabul qilish va mantiqiy ishlov berish.
-- `internal/repository.go`: Ma'lumotlarni JSON fayllari bilan sinxronizatsiya qilish.
+Loyiha modulli strukturaga ega bo'lib, quyidagi qismlardan iborat:
+
+* 📂 `cmd/main.go` — Dasturning kirish nuqtasi, marshrutlarni (routes) sozlash.
+* 📂 `internal/`
+    * `model.go` — Ma'lumotlar modeli (`User`, `Task` struct'lari).
+    * `handler.go` — HTTP so'rovlariga ishlov beruvchi mantiqiy qism.
+    * `repository.go` — Ma'lumotlarni JSON fayllari bilan o'qish/yozish operatsiyalari.
+
+---
 
 ## ⚙️ Imkoniyatlar
-1. **Foydalanuvchi tizimi:**
-   - Registratsiya (`POST /register`)
-   - Login (`POST /login`)
-2. **Vazifalar boshqaruvi:**
-   - Yangi vazifa yaratish (`POST /tasks`)
-   - Foydalanuvchiga tegishli vazifalarni `user_id` orqali filtrlab ko'rish (`GET /tasks?user_id=1`)
-3. **Ma'lumotlar xavfsizligi:**
-   - Dastur restart bo'lganda ham ma'lumotlar `json` fayllarida saqlanib qoladi.
+1.  **Foydalanuvchi tizimi:**
+    * Yangi foydalanuvchi yaratish (`/register`).
+    * Login qilish orqali identifikatsiya (`/login`).
+2.  **Vazifalar boshqaruvi:**
+    * Yangi vazifa qo'shish.
+    * Vazifalarni `user_id` orqali filtrlab olish.
+3.  **Persistence:**
+    * Dastur to'xtatilsa ham, ma'lumotlar `.json` fayllarida xavfsiz saqlanadi.
+
+---
 
 ## 🚀 O'rnatish va Ishga tushirish
 
-1. Repozitoriyani klon qiling:
-```bash
-git clone [https://github.com/7zet/Task-Tracker-API.git](https://github.com/7zet/Task-Tracker-API.git)
-cd Task-Tracker-API
+Loyiha ustida ishlash uchun quyidagi qadamlarni bajaring:
 
+1.  **Repozitoriyani klonlang:**
+    ```bash
+    git clone [https://github.com/7zet/Task-Tracker-API.git](https://github.com/7zet/Task-Tracker-API.git)
+    cd Task-Tracker-API
+    ```
 
+2.  **Bog'liqliklarni yuklang:**
+    ```bash
+    go mod tidy
+    ```
 
-Bog'liqliklarni yuklang:
-Bash
-`go mod tidy`
-Serverni ishga tushiring:
-Bash
-`go run cmd/main.go`
-📡 API Yo'llari (Endpoints)
- POST/registerYangi foydalanuvchi yaratish
- POST/loginTizimga kirish va tekshirish
- POST/tasksYangi vazifa yaratish
- GET/tasks?user_id=NN-idli foydalanuvchining hamma vazifalari
+3.  **Serverni ishga tushiring:**
+    ```bash
+    go run cmd/main.go
+    ```
 
-💡 Namuna (Request Example)Create Task:
+---
+
+## 📡 API Yo'llari (Endpoints)
+
+| Metod | Yo'nalish | Tavsif |
+| :--- | :--- | :--- |
+| `POST` | `/register` | Yangi foydalanuvchi yaratish |
+| `POST` | `/login` | Tizimga kirish va autentifikatsiya |
+| `POST` | `/tasks` | Yangi vazifa yaratish |
+| `GET` | `/tasks?user_id=N` | Ma'lum bir foydalanuvchining hamma vazifalari |
+
+### 💡 So'rov namunasi (JSON)
+**`POST /tasks`**
+```json
 {
   "user_id": 1,
-  "title": "Go organish",
+  "title": "Go o'rganish",
   "status": "pending",
   "body": "GORM va PostgreSQL mavzusini tugatish"
 }
-
-
-📝 Roadmap
-[ ] Malumotlarni PostgreSQL malumotlar bazasiga kochirish.
-[ ] JWT (JSON Web Token) orqali xavfsizlikni ta'minlash.
-[ ] Vazifalarni tahrirlash (Update) va ochirish (Delete) funksiyalari.
-
-Author: 7zet
----
-
-
