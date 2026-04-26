@@ -1,6 +1,4 @@
-# Create a professional README.md file for the Task-Tracker-API project.
-
-readme_content = """# 🚀 Task Tracker API (Golang)
+# 🚀 Task Tracker API (Golang)
 
 Ushbu loyiha **Go** tili va **Gin** freymvorki yordamida yaratilgan, vazifalarni boshqarish uchun mo'ljallangan yengil va samarali **RESTful API** hisoblanadi. Loyiha orqali foydalanuvchilarni ro'yxatdan o'tkazish, autentifikatsiya qilish va shaxsiy vazifalar (todo-list) ro'yxatini boshqarish mumkin.
 
