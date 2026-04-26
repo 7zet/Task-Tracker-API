@@ -7,9 +7,11 @@ import (
 
 func main() {
 	internal.LoadUserFromFile()
+	internal.LoadTaskFromFile()
 
 	router := gin.Default()
 
+	router.Use(internal.BasicAuth())
 	// Auth
 	router.POST("/register", internal.Register)
 	router.POST("/login", internal.Login)

@@ -39,16 +39,17 @@ func Login(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"error": err.Error(),
 		})
+		return
 	}
 
 	var foundUser *User
 	found := false
 
-	for _, u := range Users {
+	for i, u := range Users {
 
 		if u.Username == input.Username && u.Password == input.Password {
 			found = true
-			foundUser = &u
+			foundUser = &Users[i]
 			break
 
 		}
@@ -87,6 +88,14 @@ func CreateTask(c *gin.Context) {
 	newTask.ID = len(Tasks) + 1
 	// newTaskni Tasks Slicega qoshib qoyamiz
 	Tasks = append(Tasks, newTask)
+
+	if err := TaskSaver(); err != nil {
+		c.JSON(500, gin.H{
+			"error":"Faylga yozib bolmadi!",
+		})
+		return
+	}
+
 
 	// hamma jarayon togri bolganda
 	c.JSON(http.StatusCreated, gin.H{

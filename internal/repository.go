@@ -38,3 +38,26 @@ func LoadUserFromFile() error {
 	// jsonni yana slicega qaytaramiz
 	return json.Unmarshal(data, &Users)
 }
+
+
+func TaskSaver() error {
+	data, err := json.MarshalIndent(Tasks, "", "  ")
+
+	if err != nil {
+		return err
+	}
+
+	return os.WriteFile("tasks.json", data, 0644)
+
+}
+
+func LoadTaskFromFile() error {
+	data, err := os.ReadFile("tasks.json")
+	if err != nil{
+		if os.IsNotExist(err) {
+			return nil
+		}
+		return err
+	}
+	return json.Unmarshal(data, &Users)
+}
